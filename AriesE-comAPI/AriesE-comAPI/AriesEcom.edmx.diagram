@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="400d30132ee54d0088f28b8d178f6637" Name="Diagram1" ZoomLevel="81">
+        <EntityTypeShape EntityType="AriesEcommerceModel.UserLogin" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AriesEcommerceModel.UserType" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AriesEcommerceModel.AddressDetail" Width="1.5" PointX="3.375" PointY="3.75" />
+        <EntityTypeShape EntityType="AriesEcommerceModel.Member" Width="1.5" PointX="5.375" PointY="0.75" />
+        <EntityTypeShape EntityType="AriesEcommerceModel.MemberContactPhone" Width="1.5" PointX="5.375" PointY="4.75" />
+        <EntityTypeShape EntityType="AriesEcommerceModel.ProductAvailability" Width="1.5" PointX="7.75" PointY="0.75" />
+        <EntityTypeShape EntityType="AriesEcommerceModel.ProductCategory" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="AriesEcommerceModel.Product" Width="1.5" PointX="2.75" PointY="7.75" />
+        <EntityTypeShape EntityType="AriesEcommerceModel.Order" Width="1.5" PointX="7.375" PointY="3.75" />
+        <EntityTypeShape EntityType="AriesEcommerceModel.DistCreditLimit" Width="1.5" PointX="5.375" PointY="7.75" />
+        <EntityTypeShape EntityType="AriesEcommerceModel.DistributorStock" Width="1.5" PointX="7.375" PointY="7.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

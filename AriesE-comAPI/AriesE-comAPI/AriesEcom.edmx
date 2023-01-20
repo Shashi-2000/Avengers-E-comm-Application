@@ -1,0 +1,531 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="AriesEcommerceModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AddressDetails">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="AddressLine1" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="AddressLine2" Type="varchar" MaxLength="100" />
+          <Property Name="City" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="StateName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="Country" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ZipCode" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="MemberID" Type="int" />
+        </EntityType>
+        <EntityType Name="DistCreditLimit">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="CreditLimit" Type="money" />
+          <Property Name="FirmName" Type="varchar" MaxLength="200" />
+        </EntityType>
+        <EntityType Name="DistributorStock">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductID" Type="int" />
+          <Property Name="ProductName" Type="varchar" MaxLength="200" />
+          <Property Name="UnitPrice" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="DistributerID" Type="int" />
+        </EntityType>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="varchar" MaxLength="100" />
+          <Property Name="UserTypeID" Type="int" />
+          <Property Name="CountryID" Type="int" />
+          <Property Name="UserStatusID" Type="int" />
+          <Property Name="RegisteredDate" Type="datetime" Nullable="false" />
+          <Property Name="RenewalDate" Type="datetime" />
+          <Property Name="DateUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="MemberContactPhone">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="PhoneNumberTypeID" Type="int" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="50" />
+          <Property Name="MobileCountryCode" Type="int" />
+          <Property Name="MemberID" Type="int" />
+          <Property Name="MemberPersonDetailID" Type="int" />
+        </EntityType>
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderPlacedDate" Type="datetime" />
+          <Property Name="OrderID" Type="int" Nullable="false" />
+          <Property Name="ProductID" Type="int" />
+          <Property Name="ProductName" Type="varchar" MaxLength="200" />
+          <Property Name="UnitPrice" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="Quantity" Type="int" Nullable="false" />
+          <Property Name="ShippingCost" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="TotalCost" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="OrderStatus" Type="varchar" MaxLength="100" />
+          <Property Name="DistributerID" Type="int" />
+        </EntityType>
+        <EntityType Name="ProductAvailability">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="InventoryQuantity" Type="int" Nullable="false" />
+          <Property Name="AllocatedQuantity" Type="int" />
+          <Property Name="InventoryQuantityUpdatedDate" Type="datetime" />
+          <Property Name="AllocatedQuantityUpdatedDate" Type="datetime" />
+        </EntityType>
+        <EntityType Name="ProductCategory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductCategoryID" Type="int" Nullable="false" />
+          <Property Name="ProductCategoryName" Type="varchar" MaxLength="100" />
+          <Property Name="MarketID" Type="int" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="ProductCategoryDescription" Type="varchar" MaxLength="200" />
+          <Property Name="DateInserted" Type="datetime" />
+          <Property Name="DateUpdated" Type="datetime" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="DateInserted" Type="datetime" Nullable="false" />
+          <Property Name="MARKETID" Type="int" Nullable="false" />
+          <Property Name="Description" Type="varchar" MaxLength="200" />
+          <Property Name="ExpirationDate" Type="datetime" />
+          <Property Name="ImageURL" Type="varchar" MaxLength="500" />
+          <Property Name="Name" Type="varchar" MaxLength="50" />
+          <Property Name="Weight" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="TaxPrice" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="ProductID" Type="int" />
+          <Property Name="ProductCategoryID" Type="int" />
+          <Property Name="UnitPrice" Type="decimal" Precision="18" Scale="0" />
+          <Property Name="MinimumOrderDty" Type="int" />
+        </EntityType>
+        <EntityType Name="UserLogin">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="UserTypeID" Type="int" Nullable="false" />
+          <Property Name="MemberID" Type="int" />
+          <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="MiddleInitial" Type="varchar" MaxLength="50" />
+          <Property Name="LastName" Type="varchar" MaxLength="50" />
+          <Property Name="LoginID" Type="varchar" MaxLength="100" />
+          <Property Name="EmailID" Type="varchar" MaxLength="100" />
+          <Property Name="IsOnline" Type="bit" />
+          <Property Name="LastLoginDate" Type="datetime" />
+          <Property Name="LastPasswordChangeDate" Type="datetime" />
+          <Property Name="LastLockedDate" Type="datetime" />
+          <Property Name="LockCount" Type="int" />
+          <Property Name="IsLock" Type="bit" />
+          <Property Name="SecurityQuestionID" Type="int" />
+          <Property Name="SecurityAnswer" Type="varchar" MaxLength="1000" />
+          <Property Name="IsActive" Type="bit" />
+          <Property Name="DateInserted" Type="datetime" Nullable="false" />
+          <Property Name="DateUpdated" Type="datetime" />
+          <Property Name="PasswordSalt" Type="varchar" MaxLength="1000" />
+          <Property Name="IsPasswordExpired" Type="bit" />
+          <Property Name="PasswordExpiryDate" Type="datetime" />
+          <Property Name="Password" Type="varchar" MaxLength="4000" />
+          <Property Name="FirmName" Type="varchar" MaxLength="400" />
+          <Property Name="PhoneNumber" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="UserType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="AriesEcommerceModelStoreContainer">
+          <EntitySet Name="AddressDetails" EntityType="Self.AddressDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DistCreditLimit" EntityType="Self.DistCreditLimit" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DistributorStock" EntityType="Self.DistributorStock" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Member" EntityType="Self.Member" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MemberContactPhone" EntityType="Self.MemberContactPhone" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Orders" EntityType="Self.Orders" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductAvailability" EntityType="Self.ProductAvailability" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ProductCategory" EntityType="Self.ProductCategory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserLogin" EntityType="Self.UserLogin" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="UserType" EntityType="Self.UserType" Schema="dbo" store:Type="Tables" />
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="AriesEcommerceModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="UserLogin">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="UserTypeID" Type="Int32" Nullable="false" />
+          <Property Name="MemberID" Type="Int32" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MiddleInitial" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="LoginID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="EmailID" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IsOnline" Type="Boolean" />
+          <Property Name="LastLoginDate" Type="DateTime" Precision="3" />
+          <Property Name="LastPasswordChangeDate" Type="DateTime" Precision="3" />
+          <Property Name="LastLockedDate" Type="DateTime" Precision="3" />
+          <Property Name="LockCount" Type="Int32" />
+          <Property Name="IsLock" Type="Boolean" />
+          <Property Name="SecurityQuestionID" Type="Int32" />
+          <Property Name="SecurityAnswer" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="IsActive" Type="Boolean" />
+          <Property Name="DateInserted" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+          <Property Name="PasswordSalt" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="IsPasswordExpired" Type="Boolean" />
+          <Property Name="PasswordExpiryDate" Type="DateTime" Precision="3" />
+          <Property Name="Password" Type="String" MaxLength="4000" FixedLength="false" Unicode="false" />
+          <Property Name="FirmName" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="UserType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="AriesEcommerceEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="UserLogins" EntityType="Self.UserLogin" />
+          <EntitySet Name="UserTypes" EntityType="Self.UserType" />
+          <EntitySet Name="AddressDetails" EntityType="AriesEcommerceModel.AddressDetail" />
+          <EntitySet Name="Members" EntityType="AriesEcommerceModel.Member" />
+          <EntitySet Name="MemberContactPhones" EntityType="AriesEcommerceModel.MemberContactPhone" />
+          <EntitySet Name="ProductAvailabilities" EntityType="AriesEcommerceModel.ProductAvailability" />
+          <EntitySet Name="ProductCategories" EntityType="AriesEcommerceModel.ProductCategory" />
+          <EntitySet Name="Products" EntityType="AriesEcommerceModel.Product" />
+          <EntitySet Name="Orders" EntityType="AriesEcommerceModel.Order" />
+          <EntitySet Name="DistCreditLimits" EntityType="AriesEcommerceModel.DistCreditLimit" />
+          <EntitySet Name="DistributorStocks" EntityType="AriesEcommerceModel.DistributorStock" />
+        </EntityContainer>
+        <EntityType Name="AddressDetail">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="AddressLine1" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="AddressLine2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="City" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="StateName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="Country" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ZipCode" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MemberID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Member">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="UserTypeID" Type="Int32" />
+          <Property Name="CountryID" Type="Int32" />
+          <Property Name="UserStatusID" Type="Int32" />
+          <Property Name="RegisteredDate" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="RenewalDate" Type="DateTime" Precision="3" />
+          <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="MemberContactPhone">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="PhoneNumberTypeID" Type="Int32" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="MobileCountryCode" Type="Int32" />
+          <Property Name="MemberID" Type="Int32" />
+          <Property Name="MemberPersonDetailID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="ProductAvailability">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="InventoryQuantity" Type="Int32" Nullable="false" />
+          <Property Name="AllocatedQuantity" Type="Int32" />
+          <Property Name="InventoryQuantityUpdatedDate" Type="DateTime" Precision="3" />
+          <Property Name="AllocatedQuantityUpdatedDate" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="ProductCategory">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductCategoryID" Type="Int32" Nullable="false" />
+          <Property Name="ProductCategoryName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="MarketID" Type="Int32" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="ProductCategoryDescription" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="DateInserted" Type="DateTime" Precision="3" />
+          <Property Name="DateUpdated" Type="DateTime" Precision="3" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="DateInserted" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="MARKETID" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="ExpirationDate" Type="DateTime" Precision="3" />
+          <Property Name="ImageURL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Weight" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="TaxPrice" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="ProductID" Type="Int32" />
+          <Property Name="ProductCategoryID" Type="Int32" />
+          <Property Name="UnitPrice" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="MinimumOrderDty" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderPlacedDate" Type="DateTime" Precision="3" />
+          <Property Name="OrderID" Type="Int32" Nullable="false" />
+          <Property Name="ProductID" Type="Int32" />
+          <Property Name="ProductName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="UnitPrice" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="ShippingCost" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="TotalCost" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="OrderStatus" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="DistributerID" Type="Int32" />
+        </EntityType>
+        <EntityType Name="DistCreditLimit">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="CreditLimit" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="FirmName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="DistributorStock">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductID" Type="Int32" />
+          <Property Name="ProductName" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+          <Property Name="UnitPrice" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="Quantity" Type="Int32" Nullable="false" />
+          <Property Name="DistributerID" Type="Int32" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="AriesEcommerceModelStoreContainer" CdmEntityContainer="AriesEcommerceEntities">
+          <EntitySetMapping Name="UserLogins">
+            <EntityTypeMapping TypeName="AriesEcommerceModel.UserLogin">
+              <MappingFragment StoreEntitySet="UserLogin">
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="FirmName" ColumnName="FirmName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="UserTypeID" ColumnName="UserTypeID" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MiddleInitial" ColumnName="MiddleInitial" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="LoginID" ColumnName="LoginID" />
+                <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+                <ScalarProperty Name="IsOnline" ColumnName="IsOnline" />
+                <ScalarProperty Name="LastLoginDate" ColumnName="LastLoginDate" />
+                <ScalarProperty Name="LastPasswordChangeDate" ColumnName="LastPasswordChangeDate" />
+                <ScalarProperty Name="LastLockedDate" ColumnName="LastLockedDate" />
+                <ScalarProperty Name="LockCount" ColumnName="LockCount" />
+                <ScalarProperty Name="IsLock" ColumnName="IsLock" />
+                <ScalarProperty Name="SecurityQuestionID" ColumnName="SecurityQuestionID" />
+                <ScalarProperty Name="SecurityAnswer" ColumnName="SecurityAnswer" />
+                <ScalarProperty Name="IsActive" ColumnName="IsActive" />
+                <ScalarProperty Name="DateInserted" ColumnName="DateInserted" />
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="PasswordSalt" ColumnName="PasswordSalt" />
+                <ScalarProperty Name="IsPasswordExpired" ColumnName="IsPasswordExpired" />
+                <ScalarProperty Name="PasswordExpiryDate" ColumnName="PasswordExpiryDate" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="UserTypes">
+            <EntityTypeMapping TypeName="AriesEcommerceModel.UserType">
+              <MappingFragment StoreEntitySet="UserType">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AddressDetails">
+            <EntityTypeMapping TypeName="AriesEcommerceModel.AddressDetail">
+              <MappingFragment StoreEntitySet="AddressDetails">
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="ZipCode" ColumnName="ZipCode" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="AddressLine2" ColumnName="AddressLine2" />
+                <ScalarProperty Name="AddressLine1" ColumnName="AddressLine1" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Members">
+            <EntityTypeMapping TypeName="AriesEcommerceModel.Member">
+              <MappingFragment StoreEntitySet="Member">
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="RenewalDate" ColumnName="RenewalDate" />
+                <ScalarProperty Name="RegisteredDate" ColumnName="RegisteredDate" />
+                <ScalarProperty Name="UserStatusID" ColumnName="UserStatusID" />
+                <ScalarProperty Name="CountryID" ColumnName="CountryID" />
+                <ScalarProperty Name="UserTypeID" ColumnName="UserTypeID" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MemberContactPhones">
+            <EntityTypeMapping TypeName="AriesEcommerceModel.MemberContactPhone">
+              <MappingFragment StoreEntitySet="MemberContactPhone">
+                <ScalarProperty Name="MemberPersonDetailID" ColumnName="MemberPersonDetailID" />
+                <ScalarProperty Name="MemberID" ColumnName="MemberID" />
+                <ScalarProperty Name="MobileCountryCode" ColumnName="MobileCountryCode" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberTypeID" ColumnName="PhoneNumberTypeID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductAvailabilities">
+            <EntityTypeMapping TypeName="AriesEcommerceModel.ProductAvailability">
+              <MappingFragment StoreEntitySet="ProductAvailability">
+                <ScalarProperty Name="AllocatedQuantityUpdatedDate" ColumnName="AllocatedQuantityUpdatedDate" />
+                <ScalarProperty Name="InventoryQuantityUpdatedDate" ColumnName="InventoryQuantityUpdatedDate" />
+                <ScalarProperty Name="AllocatedQuantity" ColumnName="AllocatedQuantity" />
+                <ScalarProperty Name="InventoryQuantity" ColumnName="InventoryQuantity" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ProductCategories">
+            <EntityTypeMapping TypeName="AriesEcommerceModel.ProductCategory">
+              <MappingFragment StoreEntitySet="ProductCategory">
+                <ScalarProperty Name="DateUpdated" ColumnName="DateUpdated" />
+                <ScalarProperty Name="DateInserted" ColumnName="DateInserted" />
+                <ScalarProperty Name="ProductCategoryDescription" ColumnName="ProductCategoryDescription" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="MarketID" ColumnName="MarketID" />
+                <ScalarProperty Name="ProductCategoryName" ColumnName="ProductCategoryName" />
+                <ScalarProperty Name="ProductCategoryID" ColumnName="ProductCategoryID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="AriesEcommerceModel.Product">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="MinimumOrderDty" ColumnName="MinimumOrderDty" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="ProductCategoryID" ColumnName="ProductCategoryID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="TaxPrice" ColumnName="TaxPrice" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ImageURL" ColumnName="ImageURL" />
+                <ScalarProperty Name="ExpirationDate" ColumnName="ExpirationDate" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="MARKETID" ColumnName="MARKETID" />
+                <ScalarProperty Name="DateInserted" ColumnName="DateInserted" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="AriesEcommerceModel.Order">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="DistributerID" ColumnName="DistributerID" />
+                <ScalarProperty Name="OrderStatus" ColumnName="OrderStatus" />
+                <ScalarProperty Name="TotalCost" ColumnName="TotalCost" />
+                <ScalarProperty Name="ShippingCost" ColumnName="ShippingCost" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="OrderPlacedDate" ColumnName="OrderPlacedDate" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DistCreditLimits">
+            <EntityTypeMapping TypeName="AriesEcommerceModel.DistCreditLimit">
+              <MappingFragment StoreEntitySet="DistCreditLimit">
+                <ScalarProperty Name="FirmName" ColumnName="FirmName" />
+                <ScalarProperty Name="CreditLimit" ColumnName="CreditLimit" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DistributorStocks">
+            <EntityTypeMapping TypeName="AriesEcommerceModel.DistributorStock">
+              <MappingFragment StoreEntitySet="DistributorStock">
+                <ScalarProperty Name="DistributerID" ColumnName="DistributerID" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
