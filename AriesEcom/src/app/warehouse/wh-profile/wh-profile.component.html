@@ -1,0 +1,107 @@
+<app-wh-navbar></app-wh-navbar>
+
+
+<div class="content">
+    <!-- Table -->
+    <div class="row">
+        <div class="col-xl-8 m-auto order-xl-1">
+          <h2 class="my-3 hello-user">Hello {{greeting}}</h2>
+        <div class="card bg-secondary shadow">
+          <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+              <div class="col-8">
+                <h3 class="mb-0">My account</h3>
+              </div>
+              <div class="col-4 text-right">
+                  <button mat-stroked-button color="warn" class="btn" (click)="onClickEdit()">Edit</button>
+              </div>
+            </div>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="editProfile" >
+                <h6 class="heading-small text-muted mb-4">User information</h6>
+                <div class="pl-lg-4">
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-username">Username</label>
+                        <input type="text" id="input-username" class="form-control form-control-alternative"  placeholder="useName" [readOnly]="readonly" formControlName="LoginID">
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-email">Email address</label>
+                        <input type="email" id="input-email" class="form-control form-control-alternative"  placeholder="jesse@example.com" [readOnly]="readonly" formControlName="EmailID">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-first-name">First Name</label>
+                        <input type="text" id="input-first-name" class="form-control form-control-alternative" placeholder="First name" [readOnly]="readonly" formControlName="FirstName">
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-last-name">Last Name</label>
+                        <input type="text" id="input-last-name" class="form-control form-control-alternative" placeholder="Last name" [readOnly]="readonly" formControlName="LastName">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-contact-number">Contact Number</label>
+                        <input type="number" id="input-contact-number" class="form-control form-control-alternative" placeholder="00000xxxxx" [readOnly]="readonly" formControlName="PhoneNumber">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <hr class="my-4">
+                <!-- Address -->
+                <h6 class="heading-small text-muted mb-4">Address Infromation</h6>
+                <div class="pl-lg-4">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-address">Address</label>
+                        <input id="input-address" class="form-control form-control-alternative" placeholder="Home Address" readonly value="Uppal, Suryanagar Colony"  type="text">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-4">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-city">City</label>
+                        <input type="text" id="input-city" class="form-control form-control-alternative" readonly value="Hyderabad" placeholder="City">
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-country">Country</label>
+                        <input type="text" id="input-country" class="form-control form-control-alternative" readonly value="India"  placeholder="Country">
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-country">Postal code</label>
+                        <input type="number" id="input-postal-code" class="form-control form-control-alternative" readonly value="500039" placeholder="Postal code">
+                      </div>
+                    </div>
+                  </div>
+                  <ng-template [ngIf]="confirmBtn">
+                      <div>
+                          <button class="btn float-center" mat-raised-button color="accent" (click)="onClickSave()"> Save </button>
+                      </div>
+                  </ng-template>
+                </div>
+            </form>
+            
+          </div>
+        </div>
+      </div>
+  </div>
+
+  <ngx-spinner type="line-spin-fade" > <small class="text-white"> <strong>Loading</strong> </small> </ngx-spinner>
+

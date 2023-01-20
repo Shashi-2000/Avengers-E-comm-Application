@@ -1,0 +1,110 @@
+<app-admin-navbar></app-admin-navbar>
+
+<div class="container">
+    <mat-card>
+        <mat-card-content> 
+            <button class="btn-toggle" mat-stroked-button [color]="distBtnColor" (click)="onClickDistributors()">
+                View Distributers </button> | 
+            <button class="btn-toggle" mat-stroked-button [color]="empBtnColor" (click)="onClickEmployees()"> 
+                view Employees </button> 
+        </mat-card-content>
+      </mat-card>
+    <ng-template [ngIf]="viewToggle">
+        <table mat-table [dataSource]="matDistributorsList" matSort class="mat-elevation-z8">
+    
+            <ng-container matColumnDef="ID">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> ID </th>
+              <td mat-cell *matCellDef="let element"> {{element.ID}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="FirstName">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> First Name </th>
+              <td mat-cell *matCellDef="let element"> {{element.FirstName}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="EmailID">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+              <td mat-cell *matCellDef="let element"> {{element.EmailID}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="PhoneNumber">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Phone Number </th>
+              <td mat-cell *matCellDef="let element"> {{element.PhoneNumber}} </td>
+            </ng-container>
+        
+            <ng-container matColumnDef="City">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> City </th>
+              <td mat-cell *matCellDef="let element"> {{element.City}} </td>
+            </ng-container>
+        
+            <ng-container matColumnDef="FirmName">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Firm Name </th>
+              <td mat-cell *matCellDef="let element"> {{element.FirmName}} </td>
+            </ng-container>
+        
+            <ng-container matColumnDef="CreditLimit">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Credit Limit </th>
+              <td mat-cell *matCellDef="let element"> {{element.CreditLimit}} </td>
+            </ng-container>
+        
+            <ng-container matColumnDef="PurchaseOrders">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Purchase Orders </th>
+              <td mat-cell *matCellDef="let element"> <button mat-stroked-button color="warn" 
+                (click)="onClickPODialog(element.ID)">View Purchase Orders</button> </td>
+            </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+          </table>  
+
+          <mat-paginator color="warn" [pageSizeOptions]="[4, 8, 10]" showFirstLastButtons></mat-paginator>
+
+    </ng-template>
+
+    <ng-template [ngIf]="!viewToggle">
+        <table mat-table [dataSource]="matEmployees" matSort class="mat-elevation-z8">
+    
+            <ng-container matColumnDef="ID">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Employee ID </th>
+              <td mat-cell *matCellDef="let element"> {{element.ID}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="FirstName">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> First Name </th>
+              <td mat-cell *matCellDef="let element"> {{element.FirstName}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="LastName">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Last Name </th>
+              <td mat-cell *matCellDef="let element"> {{element.LastName}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="EmailID">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Email ID </th>
+              <td mat-cell *matCellDef="let element"> {{element.EmailID}} </td>
+            </ng-container>
+          
+            <ng-container matColumnDef="Block">
+              <th mat-header-cell *matHeaderCellDef mat-sort-header> Block </th>
+              <td mat-cell *matCellDef="let element"> 
+                <button mat-stroked-button color="warn" 
+                    *ngIf="element.IsActive" (click)="onClickBlockDialog(element.ID)" > Block Emp 
+               </button> 
+               <button mat-stroked-button color="accent" 
+                    *ngIf="!element.IsActive" (click)="onClickBlockDialog(element.ID)" > Unblock Emp 
+               </button>
+              </td>
+              <!-- <td mat-cell *matCellDef="let element"> <button mat-stroked-button color="accent" 
+                *ngIf="!element.IsActive" (click)="onClickBlockDialog(element.ID)" > Unblock Emp </button> </td> -->
+            </ng-container>
+        
+            <tr mat-header-row *matHeaderRowDef="empDisplayColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: empDisplayColumns;"></tr>
+          </table>  
+
+          <mat-paginator color="warn" [pageSizeOptions]="[4, 8, 10]" showFirstLastButtons></mat-paginator>
+
+    </ng-template>
+</div>
+
+<ngx-spinner type="line-spin-fade" > <small class="text-white"> <strong>Loading</strong> </small> </ngx-spinner>

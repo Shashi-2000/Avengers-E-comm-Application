@@ -1,0 +1,16 @@
+<div class="main">
+    <nav class="nav">
+      <div class="container">
+        <h1 class="logo"><a>Avengers Sales & Distributions</a></h1>
+        <ul>
+          <li><a class="nav-link" routerLink="/authorizer" routerLinkActive="active" class="a" [routerLinkActiveOptions]={exact:true} >Home</a></li>
+          <li><a class="nav-link" routerLink="/authorizer/au-profile" routerLinkActive="active">My Profile</a></li>
+          <div>
+           <a role="button" (click)="onClickLogout()" ><mat-icon  id="logout-btn" color="warn">logout</mat-icon></a>
+          </div>
+        </ul>
+      </div>
+    </nav>
+  </div>
+ <br>
+<router-outlet></router-outlet>

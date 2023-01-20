@@ -1,0 +1,141 @@
+<app-dist-navbar></app-dist-navbar>
+
+  <div class="content">
+      <!-- Table -->
+      <div class="row">
+          <div class="col-xl-8 m-auto order-xl-1">
+            <h2 class="my-3 hello-user">Hello {{greeting}}</h2>
+          <div class="card bg-secondary shadow">
+            <div class="card-header bg-white border-0">
+              <div class="row align-items-center">
+                <div class="col-8">
+                  <h3 class="mb-0">My account</h3>
+                </div>
+                <!-- <div class="col-4 text-right">
+                    <button mat-raised-button color="primary" class="btn">Edit</button>
+                </div> -->
+              </div>
+            </div>
+            <div class="card-body">
+              
+                <h6 class="heading-small text-muted mb-4">User information</h6>
+                <div class="pl-lg-4">
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-username">Username</label>
+                        <input type="text" id="input-username" class="form-control form-control-alternative" [(ngModel)]="userName" readonly placeholder="Username">
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-email">Email address</label>
+                        <input type="email" id="input-email" class="form-control form-control-alternative" [value]="email" readonly placeholder="jesse@example.com">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-first-name">First Name</label>
+                        <input type="text" id="input-first-name" class="form-control form-control-alternative" [value]="firstName" readonly placeholder="First name">
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-last-name">Last Name</label>
+                        <input type="text" id="input-last-name" class="form-control form-control-alternative" [value]="lastName" readonly placeholder="Last name">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-firm-name">Firm name</label>
+                        <input type="text" id="input-firm-name" class="form-control form-control-alternative" [value]="firmName" readonly placeholder="Firm name">
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-contact-number">Contact Number</label>
+                        <input type="number" id="input-contact-number" class="form-control form-control-alternative" [value]="contactNumber" readonly placeholder="00000xxxxx">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <hr class="my-4">
+                <!-- Address -->
+                <h6 class="heading-small text-muted mb-4">Address Infromation</h6>
+                <div class="pl-lg-4">
+                  <div class="row">
+                    <div class="col-md-12">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-address">Address</label>
+                        <input id="input-address" class="form-control form-control-alternative" placeholder="Home Address" [value]="address" readonly type="text">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-4">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-city">City</label>
+                        <input type="text" id="input-city" class="form-control form-control-alternative" [value]="city" readonly placeholder="City">
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-country">Country</label>
+                        <input type="text" id="input-country" class="form-control form-control-alternative" [value]="country" readonly placeholder="Country">
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-country">Postal code</label>
+                        <input type="number" id="input-postal-code" class="form-control form-control-alternative" [value]="postalCode" readonly placeholder="Postal code">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <hr class="my-4">
+                <h6 class="heading-small text-muted mb-4">Bank Account Details</h6>
+                <div class="pl-lg-4">
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-account-number">Bank Account Number</label>
+                        <input type="number" id="input-account-number" class="form-control form-control-alternative" value="1612345678" readonly placeholder="Account Number">
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="form-group">
+                        <label class="form-control-label" for="input-name">Account Name</label>
+                        <input type="text" id="input-name" class="form-control form-control-alternative" value="VENU KUMAR KARKRI" readonly placeholder="Account Name">
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-lg-4">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-IFSC">Bank IFSC Code</label>
+                        <input type="text" id="input-IFSC" class="form-control form-control-alternative" value="IFSC0123456" readonly placeholder="IFSC">
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-PAN">PAN Number</label>
+                        <input type="text" id="input-PAN" class="form-control form-control-alternative" value="HDJS83848G" readonly placeholder="PAN Number">
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <div class="form-group focused">
+                        <label class="form-control-label" for="input-TIN">TIN Number</label>
+                        <input type="text" id="input-last-name" class="form-control form-control-alternative" value="5674E7FG751" readonly placeholder="TIN Number">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              
+            </div>
+          </div>
+        </div>
+    </div>

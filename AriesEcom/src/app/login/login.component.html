@@ -1,0 +1,54 @@
+
+
+<div class="container">
+  <div class="float-right">
+    <button color="warn" mat-stroked-button (click)="onClickClose()">X</button>
+  </div>
+  <hr>
+  <div>
+    <form class="example-form" [formGroup]="loginForm">
+      <h5 class="fw-normal mb-3 pb-3" style="letter-spacing: 1px;">Sign into your account</h5>
+
+      <div>
+        <mat-form-field appearance="fill" class="example-full-width" color="warn">
+          <mat-label>User Name</mat-label>
+          <input matInput formControlName="userName">
+        </mat-form-field>
+      </div>
+
+      <br>
+
+      <div>
+        <mat-form-field appearance="fill" class="example-full-width" color="warn">
+          <mat-label>Password</mat-label>
+          <input matInput [type]="hide ? 'password' : 'text'" formControlName="password">
+          <button mat-icon-button matSuffix (click)="hide = !hide" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hide">
+            <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+
+      <span>
+        <p class="text-danger">{{loginError}}</p>
+      </span>
+
+      <div>
+        <button mat-raised-button color="warn" (click)="onClickLogin()"> Login </button>
+      </div>
+    </form>
+    <br>
+    <div>
+      <div class="container">
+      <a class=" register m-3" (click)="onClickPassDialog()" >Forgot password?</a>
+      <br>
+        <span class="mb-5 pb-lg-2 m-3">Don't have an account? &nbsp; | &nbsp;
+           <a class="register" (click)="onClickOpenRegister()" role="button">Register here</a>
+        </span>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+<ngx-spinner type="ball-scale-multiple" > <p>Loading</p> </ngx-spinner>
+

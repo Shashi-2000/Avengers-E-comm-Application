@@ -1,0 +1,90 @@
+<div>
+    <div class="float-right">
+        <button color="warn" mat-stroked-button (click)="onClickClose()">X</button>
+    </div>
+    <p class="text-center"> <strong>Register and Grow along</strong> </p>
+    <hr>
+    <div class="container">
+        <form [formGroup]="registerForm" (ngSubmit)="onClickRegister()">
+            <br>
+            <div class="row">
+                <div class="col-6">
+                    <mat-form-field class="example-full-width" color="warn">
+                        <mat-label>First Name</mat-label>
+                        <input matInput placeholder="First Name" formControlName="firstName">
+                    </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field class="example-full-width" color="warn">
+                        <mat-label>Last Name</mat-label>
+                        <input matInput placeholder="Last Name" formControlName="lastName">
+                    </mat-form-field>
+                </div>
+            </div>
+            <br>
+            <div>
+                <mat-form-field class="example-full-width" color="warn">
+                    <mat-label>User Name</mat-label>
+                    <input matInput placeholder="user name" formControlName="userName">
+                </mat-form-field>
+            </div>
+            <br>
+            <div>
+                <mat-form-field class="example-full-width" color="warn">
+                    <mat-label>Firm Name</mat-label>
+                    <input matInput placeholder="Firm Name" formControlName="firmName">
+                </mat-form-field>
+            </div>
+            <br>
+            <div class="row">
+                <div class="col-6">
+                    <mat-form-field class="example-full-width" color="warn">
+                        <mat-label>Email</mat-label>
+                        <input matInput placeholder="Email" formControlName="email">
+                    </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field class="example-full-width" color="warn">
+                        <mat-label>Phone Number</mat-label>
+                        <input matInput placeholder="00000xxxxx" formControlName="phoneNumer" type="number">
+                    </mat-form-field>
+                </div>
+            </div>
+            <br>
+            <div>
+                <mat-form-field appearance="fill" class="example-full-width" color="warn">
+                    <mat-label>Enter your password</mat-label>
+                    <input matInput [type]="hidePassword ? 'password' : 'text'" formControlName="password" [autocomplete]="false">
+                    <button type="button" mat-icon-button matSuffix (click)="hidePassword = !hidePassword" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hidePassword">
+                        <mat-icon>{{hidePassword ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+            </div>
+            <br>
+            <div>
+                <mat-form-field appearance="fill" class="example-full-width" color="warn">
+                    <mat-label>Confirm password</mat-label>
+                    <input matInput [type]="hideConfirm ? 'password' : 'text'" formControlName="confirmPassword" [autocomplete]="false">
+                    <button type="button" mat-icon-button matSuffix (click)="hideConfirm = !hideConfirm" [attr.aria-label]="'Hide password'" [attr.aria-pressed]="hideConfirm">
+                        <mat-icon>{{hideConfirm ? 'visibility_off' : 'visibility'}}</mat-icon>
+                    </button>
+                </mat-form-field>
+            </div>
+            <!-- <br> -->
+            <div>
+                <mat-form-field class="example-full-width" color="warn">
+                    <mat-label>Security Answer</mat-label>
+                    <input matInput placeholder="security answer" formControlName="securityAnswer">
+                </mat-form-field>
+            </div>
+            <!-- <span class="text-danger"> <small>* Please enter required fields</small> </span> -->
+            <br>
+            <div>
+                <p>
+                    <button mat-raised-button color="warn" type="reset" (click)="onClickClose()"> Cancel </button> | 
+                    <button mat-raised-button color="accent" type="submit"> Register </button> 
+                </p>
+            </div>
+        </form>
+    </div>
+</div>

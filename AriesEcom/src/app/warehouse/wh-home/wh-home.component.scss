@@ -1,0 +1,99 @@
+
+
+.mat-card-container{
+    margin: 0em 4em;
+}
+
+.mat-content{
+    display: inline;
+}
+
+.mat-card>:first-child, .mat-card-content>:first-child {
+    margin-top: -0.5em;
+}
+
+.btn-raise{
+    float: right;
+}
+
+//-----------------------------------------------------------
+// products
+//-------------------------------------------------------------
+
+
+*{
+    // color: #222222;
+    font-family: 'Open Sans', sans-serif;
+}
+
+@media (min-width: 1025px) {
+    .h-custom {
+    height: 100vh !important;
+    }
+}
+    
+.card-registration .select-input.form-control[readonly]:not([disabled]) {
+    font-size: 1rem;
+    line-height: 2.15;
+    padding-left: .75em;
+    padding-right: .75em;
+}
+    
+.bg-grey {
+    background-color: #eae8e8;
+}
+//---------------------------------
+.category li a{
+    text-decoration: none;
+    color: black;
+}
+
+.category li a:hover{
+    cursor: pointer;
+    color: #c0392b;
+    text-indent: 1em;
+    font-weight: bold;
+}
+
+.category li a:active{
+    color: #c0392b;
+}
+//-----------------------------------
+
+aside {
+    height: 100vh;
+    width: 290px;
+    position: absolute;
+    right: 0;
+    padding: 10px;
+}
+aside h4 {
+    position: relative;
+    display: inline;
+    margin-bottom: 25px;
+    font-size: 15px;
+}
+
+aside .category {
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+}
+aside .category li {
+    margin-bottom: 10px;
+    padding-bottom: 1px;
+    font-size: 14px;
+    color: rgb(16, 15, 15);
+    border-bottom: 1px solid #eee;
+    position: relative;
+}
+
+
+.float-right{
+    float: right;
+}
+
+
+
+
+

@@ -1,0 +1,81 @@
+<app-admin-navbar></app-admin-navbar>
+
+<div>
+    <div class="container mb-1">
+        <div class="container">
+            <mat-card class="mat-card-container">
+                <mat-card-content class="mat-content">Add new product to stock
+                    <button class="btn-raise" mat-raised-button color="basic" (click)="onClickAddDialog()"> Add stock --></button>
+                </mat-card-content>
+            </mat-card>
+        </div>
+    </div>
+    <section  style="background-color: rgb(122, 121, 123);">
+        <div class="container py-5 h-100">
+          <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-11">
+              <div class="card card-registration card-registration-2" >
+                <div class="card-body p-0">
+                  <div class="row g-0">
+                    <div class="col-lg-9">
+                      <div class="p-5">
+                        <div class="d-flex justify-content-between align-items-center mb-5">
+                          <h1 class="fw-bold mb-0 text-black">Products</h1>
+                          <!-- <h6 class="mb-0 text-muted">{{}}</h6> -->
+                        </div>
+                        <hr class="my-4">
+      
+                        <div *ngFor="let product of productsX" class="row mb-4 d-flex justify-content-between align-items-center">
+                          <div class="col-md-2 col-lg-2 col-xl-2">
+                            <img
+                              [src]="product.ImageURL"
+                              class="img-fluid rounded-3" alt="Cotton T-shirt">
+                          </div>
+                          <div class="col-md-3 col-lg-3 col-xl-3">
+                            <h6>{{product.Name}}</h6>
+                            <h6>{{product.Description}}</h6>
+                          </div>
+                          <div  class="col-md-3 col-lg-3 col-xl-3">
+                            <span class="text-muted">Min Order Qty</span>
+                            <h6>{{product.MinimumOrderDty}}</h6>
+                          </div>
+                          <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                            <h6>{{product.UnitPrice | currency:'INR'}}</h6>
+                          </div>
+    
+                          <div>
+                              <button class=" mx-3  float-right" mat-raised-button color="accent" (click)="onClickUpdateStock(product)">Update Stock</button>
+                              <div class="col-md-1 col-lg-1  d-flex mt-1 float-right" >
+                              </div>
+                          </div>
+    
+                          <hr class="my-4">
+                        </div>
+                    </div>
+                    </div>
+                    <div class="col-lg-3 bg-grey">
+                        <aside>
+                            <h4 class="fw-bold">CATEGORIES</h4>
+                            <ul class="category">
+                              <li> <a role="button" (click)="onClickFilter('All')">All</a> </li>
+                              <li> <a role="button" (click)="onClickFilter('Fashion')">Fashion</a> </li>
+                              <li> <a role="button" (click)="onClickFilter('Headphones')">Headphones</a> </li>
+                              <li> <a role="button" (click)="onClickFilter('Electronics')">Electronics</a> </li>
+                              <li> <a role="button" (click)="onClickFilter('Furniture')">Furniture</a> </li>
+                              <li> <a role="button" (click)="onClickFilter('Toys')">Toys</a> </li>
+                              <li> <a role="button" (click)="onClickFilter('Others')">Others</a> </li>
+                            </ul>
+                        </aside>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- <mat-paginator color="warn" [pageSizeOptions]="[1, 2, 5]" showFirstLastButtons></mat-paginator> -->
+            </div>
+          </div>
+        </div>
+      </section>
+</div>
+
+<ngx-spinner type="line-spin-fade"> <small class="text-white"> <strong>Loading</strong> </small> </ngx-spinner>
+  

@@ -1,0 +1,74 @@
+<div>
+    <div class="float-right">
+        <button color="warn" mat-stroked-button (click)="onClickClose()">X</button>
+    </div>
+    <div>
+        <h3 color="warn" class="text-center">New Purchase Order</h3>
+    </div>
+        <form class="example-form" [formGroup]="raisePOForm">
+            <div>
+                <mat-form-field appearance="fill" color="warn">
+                    <mat-label>Choose a date</mat-label>
+                    <input matInput [matDatepicker]="orderDate" formControlName="OrderPlacedDate">
+                    <mat-hint>MM/DD/YYYY</mat-hint>
+                    <mat-datepicker-toggle matIconSuffix [for]="orderDate"></mat-datepicker-toggle>
+                    <mat-datepicker #orderDate></mat-datepicker>
+                  </mat-form-field>
+            </div>
+            <div class="row">
+                <div class="col-6">
+                    <mat-form-field appearance="fill" color="warn">
+                        <mat-label>Order ID</mat-label>
+                        <input matInput formControlName="OrderID">
+                    </mat-form-field>
+                </div>
+                <div class="col-6">
+                    <mat-form-field appearance="fill" color="warn">
+                        <mat-label>Product ID</mat-label>
+                        <input matInput formControlName="ProductID">
+                    </mat-form-field>
+                </div>
+            </div>
+            <div>
+                <mat-form-field class="example-full-width" color="warn">
+                    <mat-label>Product Name</mat-label>
+                    <input matInput formControlName="ProductName">
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="fill" color="warn">
+                    <mat-label>Quantity</mat-label>
+                    <input matInput formControlName="Quantity">
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="fill" color="warn">
+                    <mat-label>Unit Price</mat-label>
+                    <input matInput formControlName="UnitPrice">
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="fill" color="warn">
+                    <mat-label>Shipping Cost</mat-label>
+                    <input matInput formControlName="ShippingCost">
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="fill" color="warn">
+                    <mat-label>Taxes</mat-label>
+                    <input matInput formControlName="taxes">
+                </mat-form-field>
+            </div>
+            <div>
+                <mat-form-field appearance="fill" color="warn">
+                    <mat-label>Total Price</mat-label>
+                    <input matInput formControlName="TotalCost">
+                </mat-form-field>
+            </div>
+            <div>
+                <button color="warn" mat-raised-button color="accent" (click)="onClickConfirmOrder()">Confirm Order</button>
+            </div>
+        </form>
+</div>
+
+

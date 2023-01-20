@@ -1,0 +1,24 @@
+
+<div>
+    <div class="float-right">
+        <button color="warn" mat-stroked-button (click)="onClickClose()">X</button>
+    </div>
+    <h3 class="text-center" >Purchase Orders</h3>
+    <div>
+        <mat-list role="list" *ngFor="let po of purchaseOrders">
+            <hr>
+            <mat-list-item role="listitem"> Order Placed Date :  {{po.OrderPlacedDate | date}}</mat-list-item>
+            <mat-list-item role="listitem"> Order ID : {{po.OrderID}}</mat-list-item>
+            <mat-list-item role="listitem"> Product ID :  {{po.ProductID}}</mat-list-item>
+            <mat-list-item role="listitem"> Quantity : {{po.Quantity}}</mat-list-item>
+            <mat-list-item role="listitem"> Shipping Cost : {{po.ShippingCost | currency : 'INR'}}</mat-list-item>
+            <mat-list-item role="listitem"> Total Cost :  {{po.TotalCost | currency : 'INR'}}</mat-list-item>
+            <mat-list-item role="listitem"> Order Status :  {{po.OrderStatus}}</mat-list-item>
+          </mat-list>
+    </div>
+</div>
+
+<!-- spinner -->
+<!-- <ngx-spinner type="ball-elastic-dots"> <h4>updating...</h4> </ngx-spinner> -->
+
+

@@ -1,0 +1,29 @@
+
+<div>
+    <div class="float-right">
+        <button color="warn" mat-stroked-button (click)="onClickClose()">X</button>
+    </div>
+    <h3 class="text-center" >Purchase Orders</h3>
+    <div>
+        <mat-list role="list" *ngFor="let po of purchaseOrders">
+            <hr>
+            <mat-list-item role="listitem"> Order Placed Date :  {{po.OrderPlacedDate | date}}</mat-list-item>
+            <mat-list-item role="listitem"> Order ID : {{po.OrderID}}</mat-list-item>
+            <mat-list-item role="listitem"> Product ID :  {{po.ProductID}}</mat-list-item>
+            <mat-list-item role="listitem"> Quantity : {{po.Quantity}}</mat-list-item>
+            <mat-list-item role="listitem"> Shipping Cost : {{po.ShippingCost | currency : 'INR'}}</mat-list-item>
+            <mat-list-item role="listitem"> Total Cost :  {{po.TotalCost | currency : 'INR'}}</mat-list-item>
+            <mat-list-item role="listitem"> Order Status :  {{po.OrderStatus}}</mat-list-item>
+            <ng-template [ngIf]="po.TotalCost > po.CreditLimit">
+                <span class="text-danger mx-3"> <small>*Credit limit insufficient</small> </span>
+            </ng-template>
+            <mat-list-item role="listitem">
+                <button mat-stroked-button color="accent" class="mx-2" [disabled]="po.TotalCost > po.CreditLimit || po.OrderStatus === 'Rejected'" (click)="onClickAccept(po.OrderID)"> Accept Order </button> | 
+                <button mat-stroked-button color="warn" class="mx-2"  (click)="onClickReject(po.OrderID)" > Reject Order </button>
+            </mat-list-item>
+          </mat-list>
+    </div>
+</div>
+
+
+

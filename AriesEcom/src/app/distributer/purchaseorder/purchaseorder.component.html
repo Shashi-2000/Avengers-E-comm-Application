@@ -1,0 +1,72 @@
+<app-dist-navbar></app-dist-navbar>
+
+<div class="container">
+    <div class="container">
+        <mat-card class="mat-card-container">
+            <mat-card-content class="mat-content">Raise new purchase order
+                <button class="btn-raise" mat-raised-button color="accent" (click)="onclickRaiseOrder()">Raise Order</button>
+            </mat-card-content>
+        </mat-card>
+    </div>
+    <hr>
+    <div class="container">
+        <div class="container my-4">
+            <div class="mat-elevation-z8">
+            <table mat-table  matSort [dataSource]="matOrders">
+            
+                <ng-container matColumnDef="OrderPlacedDate">
+                    <th mat-header-cell mat-sort-header *matHeaderCellDef> OrderPlacedDate </th>
+                    <td mat-cell *matCellDef="let element"> {{element.OrderPlacedDate | date}} </td>
+                </ng-container>
+                
+                
+                <ng-container matColumnDef="OrderID">
+                    <th mat-sort-header mat-header-cell *matHeaderCellDef> OrderID </th>
+                    <td mat-cell *matCellDef="let element"> {{element.OrderID}} </td>
+                </ng-container>
+                
+                  
+                <ng-container matColumnDef="ProductID">
+                    <th mat-sort-header mat-header-cell *matHeaderCellDef> ProductID </th>
+                    <td mat-cell *matCellDef="let element"> {{element.ProductID}} </td>
+                </ng-container>
+              
+                <ng-container matColumnDef="ProductName">
+                    <th mat-sort-header mat-header-cell *matHeaderCellDef> ProductName </th>
+                    <td mat-cell *matCellDef="let element"> {{element.ProductName}}</td>
+                </ng-container>
+            
+                <ng-container matColumnDef="UnitPrice">
+                    <th mat-sort-header mat-header-cell *matHeaderCellDef> UnitPrice </th>
+                    <td mat-cell *matCellDef="let element"> {{element.UnitPrice | currency : 'INR'}}</td>
+                </ng-container>
+            
+                <ng-container matColumnDef="Quantity">
+                    <th mat-sort-header mat-header-cell *matHeaderCellDef> Quantity </th>
+                    <td mat-cell *matCellDef="let element"> {{element.Quantity}}</td>
+                </ng-container>
+            
+                <ng-container matColumnDef="ShippingCost">
+                    <th mat-sort-header mat-header-cell *matHeaderCellDef> ShippingCost </th>
+                    <td mat-cell *matCellDef="let element"> {{element.ShippingCost | currency : 'INR'}}</td>
+                </ng-container>
+            
+                <ng-container matColumnDef="TotalCost">
+                    <th mat-sort-header mat-header-cell *matHeaderCellDef> TotalCost </th>
+                    <td mat-cell *matCellDef="let element"> {{element.TotalCost | currency : 'INR'}}</td>
+                </ng-container>
+            
+                <ng-container matColumnDef="OrderStatus">
+                    <th mat-sort-header mat-header-cell *matHeaderCellDef> OrderStatus </th>
+                    <td mat-cell *matCellDef="let element"> {{element.OrderStatus}}</td>
+                </ng-container>
+                
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+            <mat-paginator color="warn" [pageSizeOptions]="[4, 8, 10]"  [pageSize]="10"  showFirstLastButtons></mat-paginator>
+            
+            </div>
+            </div>
+    </div>
+</div>

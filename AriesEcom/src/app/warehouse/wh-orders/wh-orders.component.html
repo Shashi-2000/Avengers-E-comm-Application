@@ -1,0 +1,71 @@
+<app-wh-navbar></app-wh-navbar>
+
+<div class="container">
+    <div>
+        <hr>
+    </div>
+    <div>
+        <table mat-table [dataSource]="matOrders" matSort class="mat-elevation-z8">
+
+            <!--- Note that these columns can be defined in any order.
+                  The actual rendered columns are set as a property on the row definition" -->
+          
+            <!-- Position Column -->
+            <ng-container matColumnDef="OrderID">
+              <th mat-sort-header mat-header-cell *matHeaderCellDef> Order ID </th>
+              <td mat-cell *matCellDef="let element"> {{element.OrderID}} </td>
+            </ng-container>
+          
+            <!-- Name Column -->
+            <ng-container matColumnDef="OrderPlacedDate">
+              <th mat-sort-header mat-header-cell *matHeaderCellDef> Order Placed Date </th>
+              <td mat-cell *matCellDef="let element"> {{element.OrderPlacedDate}} </td>
+            </ng-container>
+          
+            <!-- Weight Column -->
+            <ng-container matColumnDef="ProductName">
+              <th mat-sort-header mat-header-cell *matHeaderCellDef> Product Name </th>
+              <td mat-cell *matCellDef="let element"> {{element.ProductName}} </td>
+            </ng-container>
+          
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="ProductID">
+              <th mat-sort-header mat-header-cell *matHeaderCellDef> Product ID </th>
+              <td mat-cell *matCellDef="let element"> {{element.ProductID}} </td>
+            </ng-container>
+          
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="Quantity">
+              <th mat-sort-header mat-header-cell *matHeaderCellDef> Quantity </th>
+              <td mat-cell *matCellDef="let element"> {{element.Quantity}} </td>
+            </ng-container>
+          
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="TotalCost">
+              <th mat-sort-header mat-header-cell *matHeaderCellDef> Total Cost </th>
+              <td mat-cell *matCellDef="let element"> {{element.TotalCost}} </td>
+            </ng-container>
+          
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="OrderStatus">
+              <th mat-sort-header mat-header-cell *matHeaderCellDef> Order Status </th>
+              <td mat-cell *matCellDef="let element"> {{element.OrderStatus}} </td>
+            </ng-container>
+          
+            <!-- Symbol Column -->
+            <ng-container matColumnDef="Dispatch">
+              <th mat-sort-header mat-header-cell *matHeaderCellDef> Dispatch </th>
+              <td mat-cell *matCellDef="let element"> <button mat-stroked-button color="accent" [disabled]="element.OrderStatus === 'Dispatched'" (click)="onClickDispatch(element.OrderID, element)"> Dispatch </button> </td>
+            </ng-container>
+          
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+        
+        <mat-paginator color="warn" [pageSizeOptions]="[4, 8, 10]" showFirstLastButtons></mat-paginator>
+
+    </div>
+</div>
+
+<ngx-spinner type="line-spin-fade" > <small class="text-white"> <strong>Loading</strong> </small> </ngx-spinner>
+

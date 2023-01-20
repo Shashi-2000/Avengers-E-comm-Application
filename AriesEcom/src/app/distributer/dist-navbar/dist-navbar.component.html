@@ -1,0 +1,20 @@
+
+ <div class="main">
+   <nav class="nav">
+     <div class="container">
+       <h1 class="logo"><a>Avengers Sales & Distributions</a></h1>
+       <ul>
+         <li><a class="nav-link" routerLink="/distributer" routerLinkActive="active" class="a" [routerLinkActiveOptions]={exact:true} >Products</a></li>
+         <li><a class="nav-link" routerLink="/distributer/stock" routerLinkActive="active" class="a" >Stock</a></li>
+         <li><a class="nav-link" routerLink="/distributer/purchase" routerLinkActive="active">Purchase Order</a></li>
+         <li><a class="nav-link" routerLink="/distributer/profile" routerLinkActive="active">My Profile</a></li>
+         <div>
+          <a role="button" (click)="onClickLogout()" ><mat-icon  id="logout-btn" color="warn">logout</mat-icon></a>
+          <!-- <a><mat-icon  class="material-icons color_green" color="warn">logout</mat-icon></a> -->
+         </div>
+       </ul>
+     </div>
+   </nav>
+ </div>
+<br>
+  <router-outlet></router-outlet>
